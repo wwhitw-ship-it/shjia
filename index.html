@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>釋迦世家 Junior | Brand DNA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@200;300;400;500&family=Noto+Serif+TC:wght@200;300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --lime: #C8E44A;
+            --lime-dark: #9DB83A;
+            --cream: #FDFAF2;
+            --warm-white: #FAF8F3;
+            --ink: #1A1C18;
+            --forest: #2D3A22;
+            --sage: #7A8D6E;
+            --pale-yellow: #F7EDCA;
+            --coral-accent: #F2845A;
+            --text-mid: #5A5E56;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', 'Noto Serif TC', sans-serif;
+            background-color: var(--ink);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ─── NOISE TEXTURE OVERLAY ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.6;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            background-color: var(--lime);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 56px 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.12);
+            top: -180px;
+            right: -120px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            bottom: 40px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.04); }
+        }
+
+        .hero-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-mark {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--forest);
+            letter-spacing: 0.08em;
+        }
+
+        .nav-tag {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--forest);
+            opacity: 0.6;
+        }
+
+        .hero-headline {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-headline h1 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(72px, 9vw, 120px);
+            font-weight: 900;
+            line-height: 0.9;
+            color: var(--forest);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--cream);
+            display: block;
+        }
+
+        .hero-sub {
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--forest);
+            opacity: 0.55;
+            margin-top: 32px;
+        }
+
+        .hero-right {
+            background-color: var(--forest);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Organic blob */
+        .blob {
+            position: absolute;
+            background: var(--lime);
+            opacity: 0.15;
+            border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+            animation: morph 12s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 340px; height: 340px;
+            top: -60px; right: -80px;
+        }
+
+        .blob-2 {
+            width: 200px; height: 200px;
+            bottom: 20px; left: -60px;
+            animation-delay: -4s;
+            opacity: 0.1;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; }
+            33%       { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+            66%       { border-radius: 70% 30% 50% 50% / 30% 60% 50% 60%; }
+        }
+
+        .hero-tagline {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-tagline blockquote {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--cream);
+            margin-bottom: 32px;
+        }
+
+        .hero-tagline blockquote span {
+            color: var(--lime);
+        }
+
+        .pill {
+            display: inline-block;
+            background: rgba(200, 228, 74, 0.15);
+            border: 1px solid rgba(200, 228, 74, 0.3);
+            color: var(--lime);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 100px;
+        }
+
+        /* ─── SECTION BASE ─── */
+        section {
+            padding: 120px 80px;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            max-width: 48px;
+            height: 0.5px;
+            background: var(--lime);
+            opacity: 0.5;
+        }
+
+        /* ─── SECTION 01: VISION ─── */
+        .section-vision {
+            background: var(--warm-white);
+            color: var(--ink);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .vision-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 180px;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--lime);
+            opacity: 0.3;
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .vision-text h2 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(38px, 4vw, 56px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 28px;
+        }
+
+        .vision-text p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-mid);
+            max-width: 400px;
+        }
+
+        .vision-pillars {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .pillar {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 48px 1fr;
+            gap: 20px;
+            align-items: start;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .pillar:hover .pillar-icon {
+            opacity: 1;
+            transform: scale(1.15);
+        }
+
+        .pillar-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--lime);
+            opacity: 0.55;
+            transition: all 0.4s ease;
+            animation: pillar-morph 6s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        .pillar:nth-child(1) .pillar-icon { animation-delay: 0s; background: var(--lime); }
+        .pillar:nth-child(2) .pillar-icon { animation-delay: -1.5s; background: #9DB83A; }
+        .pillar:nth-child(3) .pillar-icon { animation-delay: -3s; background: #F2845A; }
+        .pillar:nth-child(4) .pillar-icon { animation-delay: -4.5s; background: #F7EDCA; }
+
+        @keyframes pillar-morph {
+            0%   { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; transform: scale(1); }
+            20%  { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; transform: scale(1.2); }
+            40%  { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; transform: scale(0.85); }
+            60%  { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; transform: scale(1.25); }
+            80%  { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; transform: scale(0.9); }
+            100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; transform: scale(1); }
+        }
+
+        .pillar-content h5 {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .pillar-content p {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-mid);
+        }
+
+        /* ─── SECTION 02: VISUAL DNA ─── */
+        .section-visual {
+            background: #202218;
+            color: var(--cream);
+            overflow: hidden;
+        }
+
+        .visual-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: end;
+            margin-bottom: 80px;
+        }
+
+        .visual-header h2 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .visual-header p {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.5);
+            align-self: end;
+        }
+
+        .visual-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .v-card {
+            padding: 48px 36px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .v-card:hover {
+            background: rgba(200, 228, 74, 0.07);
+            border-color: rgba(200, 228, 74, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .v-card-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--lime);
+            opacity: 0.25;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .v-card h5 {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--lime);
+            margin-bottom: 12px;
+        }
+
+        .v-card p {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* ─── SECTION 03: COLOR & PALETTE ─── */
+        .section-palette {
+            background: var(--cream);
+            color: var(--ink);
+        }
+
+        .palette-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .swatch-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .swatch {
+            height: 72px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .swatch:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .swatch-name {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .swatch-hex {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            font-family: monospace;
+            opacity: 0.7;
+        }
+
+        .palette-notes h3 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .palette-notes p {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--text-mid);
+            margin-bottom: 40px;
+        }
+
+        .tone-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .tone-item {
+            padding: 20px;
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 12px;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .tone-item:hover {
+            border-color: var(--lime-dark);
+            background: rgba(200, 228, 74, 0.05);
+        }
+
+        .tone-item span {
+            display: block;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 6px;
+        }
+
+        .tone-item p {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-mid);
+            margin: 0;
+        }
+
+        /* ─── SECTION 04: COMMUNICATION ─── */
+        .section-comm {
+            background: var(--lime);
+            color: var(--forest);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .comm-left h2 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 32px;
+        }
+
+        .comm-left p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--forest);
+            opacity: 0.7;
+        }
+
+        .voice-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .voice-card {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 28px 32px;
+            border: 1px solid rgba(255,255,255,0.7);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .voice-card:hover {
+            background: rgba(255,255,255,0.8);
+            transform: translateY(-3px);
+        }
+
+        .voice-tag {
+            display: inline-block;
+            background: var(--forest);
+            color: var(--lime);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+        }
+
+        .voice-card h5 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--forest);
+        }
+
+        .voice-card p {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--forest);
+            opacity: 0.65;
+        }
+
+        /* ─── SECTION 05: AUDIENCE ─── */
+        .section-audience {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .audience-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .audience-inner h2 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(38px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .audience-inner h2 em {
+            font-style: italic;
+            color: var(--lime);
+        }
+
+        .audience-inner > p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.45);
+            max-width: 540px;
+            margin: 0 auto 64px;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            text-align: left;
+        }
+
+        .persona {
+            padding: 48px 36px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .persona:hover {
+            background: rgba(200, 228, 74, 0.06);
+            border-color: rgba(200, 228, 74, 0.25);
+        }
+
+        .persona-emoji {
+            font-size: 36px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .persona h4 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .persona-role {
+            font-size: 10px;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--lime);
+            opacity: 0.7;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .persona p {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--lime);
+            padding: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .footer-left h3 {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 900;
+            color: var(--forest);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .footer-left p {
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.9;
+            color: var(--forest);
+            opacity: 0.6;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-motto {
+            font-family: 'Playfair Display', 'Noto Serif TC', serif;
+            font-size: 28px;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--forest);
+            margin-bottom: 32px;
+        }
+
+        .footer-meta {
+            font-size: 10px;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--forest);
+            opacity: 0.4;
+        }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .hero,
+            .section-vision,
+            .section-comm,
+            footer { grid-template-columns: 1fr; }
+            .hero-right { min-height: 50vh; }
+            .visual-header { grid-template-columns: 1fr; gap: 20px; }
+            .visual-cards,
+            .persona-grid { grid-template-columns: 1fr; }
+            .palette-layout { grid-template-columns: 1fr; }
+            section { padding: 80px 32px; }
+            footer { padding: 60px 32px; }
+            .footer-right { text-align: left; }
+            .vision-number { font-size: 100px; top: 20px; left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HERO ─── -->
+    <div class="hero">
+        <div class="hero-left">
+            <div class="hero-nav">
+                <span class="logo-mark">釋迦世家 Shijia</span>
+                <span class="nav-tag">Brand DNA 2026</span>
+            </div>
+            <div class="hero-headline">
+                <h1>Shijia<br><em>Junior.</em></h1>
+                <p class="hero-sub">Sugar Apple Junior · 台東三代傳承</p>
+            </div>
+            <div style="font-size:10px; font-weight:300; letter-spacing:0.5em; text-transform:uppercase; color: rgba(45,58,34,0.4);">
+                Authenticity · Vitality · Joy
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="hero-tagline">
+                <blockquote>
+                    「讓快樂慢慢熟，<br><span>甜透心。</span>」
+                </blockquote>
+                <span class="pill">Taitung · Pure · Alive</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── 01: VISION ─── -->
+    <section class="section-vision">
+        <div class="vision-number">01</div>
+        <div class="vision-text reveal">
+            <span class="section-label" style="color: var(--lime-dark);">01 / Vision</span>
+            <h2>土地之愛，<br>現代表達。</h2>
+            <p>我們不只是在賣水果。我們把台東三代家族對土地的熱愛，轉化成一種清爽、有活力、充滿生命感的生活方式提案。每一顆釋迦，都是一個小小的快樂宣言。</p>
+        </div>
+        <div class="vision-pillars reveal reveal-delay-2">
+            <div class="pillar">
+                <div class="pillar-icon"></div>
+                <div class="pillar-content">
+                    <h5>Roots / 傳承</h5>
+                    <p>三代農家的職人精神與土地記憶，是品牌最深的底氣。</p>
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"></div>
+                <div class="pillar-content">
+                    <h5>Freshness / 清爽感</h5>
+                    <p>從影像到語言，所有輸出都呈現如早晨空氣般的純淨張力。</p>
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon"></div>
+                <div class="pillar-content">
+                    <h5>Joy / 快樂感</h5>
+                    <p>拒絕說教，擁抱好奇。讓知識像朋友聊天一樣自然流動。</p>
+                </div>
+            </div>
+            <div class="pillar" style="border-bottom: none;">
+                <div class="pillar-icon"></div>
+                <div class="pillar-content">
+                    <h5>Community / 共同體</h5>
+                    <p>與毛孩、家人、朋友一起，建立有溫度的生活連結。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 02: VISUAL DNA ─── -->
+    <section class="section-visual">
+        <div class="visual-header reveal">
+            <h2>Visual<br><em style="font-style:italic; color: var(--lime);">Clarity.</em></h2>
+            <p>「清爽」來自真實。我們追求 High-key 的明亮感——讓釋迦呈現出如清晨露珠般的視覺張力。色彩有主張，構圖有呼吸，畫面有故事。</p>
+        </div>
+        <div class="visual-cards">
+            <div class="v-card reveal reveal-delay-1">
+                <div class="v-card-num">A</div>
+                <h5>自然光譜</h5>
+                <p>5500K 純淨自然光。避免過度飽和，保持色彩的真實與清透，讓水果的紋理說話。</p>
+            </div>
+            <div class="v-card reveal reveal-delay-2">
+                <div class="v-card-num">B</div>
+                <h5>呼吸構圖</h5>
+                <p>留白比例超過 40%。讓主體在畫面中自由呼吸——空間感本身就是一種清爽的語言。</p>
+            </div>
+            <div class="v-card reveal reveal-delay-3">
+                <div class="v-card-num">C</div>
+                <h5>動態質感</h5>
+                <p>鼓勵加入人物互動、自然場景。靜物很美，但生命力來自「活著的畫面」。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 03: COLOR PALETTE ─── -->
+    <section class="section-palette">
+        <span class="section-label" style="color: var(--lime-dark);">03 / Color System</span>
+        <div class="palette-layout">
+            <div class="swatch-stack reveal">
+                <div class="swatch" style="background: #C8E44A; color: #2D3A22;">
+                    <span class="swatch-name">Stone Lime</span>
+                    <span class="swatch-hex">#C8E44A</span>
+                </div>
+                <div class="swatch" style="background: #2D3A22; color: #C8E44A;">
+                    <span class="swatch-name">Forest Ink</span>
+                    <span class="swatch-hex">#2D3A22</span>
+                </div>
+                <div class="swatch" style="background: #FDFAF2; color: #2D3A22;">
+                    <span class="swatch-name">Morning Cream</span>
+                    <span class="swatch-hex">#FDFAF2</span>
+                </div>
+                <div class="swatch" style="background: #F7EDCA; color: #5A5E56;">
+                    <span class="swatch-name">Sunlight Pale</span>
+                    <span class="swatch-hex">#F7EDCA</span>
+                </div>
+                <div class="swatch" style="background: #F2845A; color: #fff;">
+                    <span class="swatch-name">Burst Coral</span>
+                    <span class="swatch-hex">#F2845A</span>
+                </div>
+            </div>
+            <div class="palette-notes reveal reveal-delay-2">
+                <h3>有主張的<br>色彩語言。</h3>
+                <p>我們的色盤不只是「好看」，每個顏色都有情緒的出口。萊姆黃綠是主角，森林深綠是底氣，珊瑚橘是偶爾放肆的快樂。</p>
+                <div class="tone-grid">
+                    <div class="tone-item">
+                        <span>Primary Role</span>
+                        <p>Stone Lime 主控所有活潑、號召性的場合</p>
+                    </div>
+                    <div class="tone-item">
+                        <span>Grounding</span>
+                        <p>Forest Ink 給品牌重量與可信度</p>
+                    </div>
+                    <div class="tone-item">
+                        <span>Breathing</span>
+                        <p>Morning Cream 是畫面的空氣</p>
+                    </div>
+                    <div class="tone-item">
+                        <span>Accent Joy</span>
+                        <p>Burst Coral 點綴特殊時刻的驚喜感</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 04: COMMUNICATION ─── -->
+    <section class="section-comm">
+        <div class="comm-left reveal">
+            <span class="section-label" style="color: var(--forest); opacity: 0.6;">04 / Voice & Tone</span>
+            <h2>像朋友，<br>不像<br>廣告。</h2>
+            <p>我們說話的方式，比我們說什麼更重要。每一個貼文、每一個標題，都應該讓人覺得「這個品牌真的很有趣」——而不是「又是一個在推銷的品牌」。</p>
+        </div>
+        <div class="voice-cards reveal reveal-delay-2">
+            <div class="voice-card">
+                <span class="voice-tag">快樂百科</span>
+                <h5>好奇是最好的開場白</h5>
+                <p>用「你知道嗎？」「其實這樣超驚人」的語氣，把知識變成朋友間的聊天話題。</p>
+            </div>
+            <div class="voice-card">
+                <span class="voice-tag">生活提案</span>
+                <h5>不說教，說「一起來」</h5>
+                <p>把健康、土地、寵物知識融入真實生活情境。我們不是醫生，我們是有品味的好鄰居。</p>
+            </div>
+            <div class="voice-card">
+                <span class="voice-tag">品牌靈魂</span>
+                <h5>「讓快樂慢慢熟，甜透心。」</h5>
+                <p>這句話的底層邏輯：快樂不需要理由，甜蜜是生命最本質的狀態。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 05: AUDIENCE ─── -->
+    <section class="section-audience">
+        <div class="audience-inner">
+            <span class="section-label" style="justify-content: center; color: var(--lime);">05 / Our People</span>
+            <h2>他們不只買水果，<br>他們在<em>選擇生活方式</em>。</h2>
+            <p>我們的受眾是那些相信「吃什麼就是什麼」的人——不是養生派，而是對生活有品味的人。</p>
+            <div class="persona-grid">
+                <div class="persona reveal reveal-delay-1">
+                    <span class="persona-emoji">🏙️</span>
+                    <h4>都市輕熟族</h4>
+                    <span class="persona-role">Urban Sophisticate</span>
+                    <p>25–38 歲，重視食物來源與品質。願意為「真實」多付一點，但不喜歡被說教。</p>
+                </div>
+                <div class="persona reveal reveal-delay-2">
+                    <span class="persona-emoji">🐾</span>
+                    <h4>新手毛孩家長</h4>
+                    <span class="persona-role">Pet-First Parent</span>
+                    <p>把貓狗當家人，對「安全食材」極度敏感。需要有信任感、有溫度的資訊來源。</p>
+                </div>
+                <div class="persona reveal reveal-delay-3">
+                    <span class="persona-emoji">🌿</span>
+                    <h4>意識消費者</h4>
+                    <span class="persona-role">Conscious Buyer</span>
+                    <p>在乎農業背景、在地生產。覺得「支持好農家」是一種有意義的生活選擇。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="footer-left reveal">
+            <h3>釋迦世家<br>Junior.</h3>
+            <p>台東的甜蜜，以最清爽的方式，<br>送到你的生活裡。</p>
+        </div>
+        <div class="footer-right reveal reveal-delay-2">
+            <p class="footer-motto">「讓快樂慢慢熟，甜透心。」</p>
+            <p class="footer-meta">Sugar Apple Junior · Brand DNA 2025<br>Authenticity · Vitality · Joy</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
